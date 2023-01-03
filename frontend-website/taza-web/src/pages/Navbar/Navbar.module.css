@@ -1,0 +1,79 @@
+
+  .navbar{
+    height: 70px;
+    width: 100%;
+    padding: 30px 50px;
+    position: relative;
+    /* background-color: #C2CFE4; */
+  }
+  .navbar .nav_header{
+    display: inline;
+  }
+  .navbar .nav_header .nav_logo{
+    display: inline-block;
+  }
+  
+  .navbar .nav_header .nav_logo a{
+    font-family: 'Lobster', cursive;
+    color: #414C60;
+    font-size: 40px;
+    text-decoration: none;
+    -webkit-text-stroke: 1px #C2CFE4;
+  }
+  .navbar .nav_links{
+    display: inline;
+    float: right;
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif;
+    /* padding: 20px; */
+  }
+   
+  .navbar .nav_links .loginBtn{
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 17px;
+    color: rgb(251, 251, 251);
+    border-radius: 24px;
+    background-color: #CCACB3;
+    border-width: 0;
+    padding: 15px 20px;
+  }
+
+  .navbar .nav_links .loginBtn:hover{
+    background-color: #98757c;
+  }
+  .navbar .nav_links a{
+    padding: 10px 12px;
+    text-decoration: none;
+    font-weight: 550;
+    color: white;
+    
+  }
+  /* Hover effects */
+  .navbar .nav_links a:hover{
+    color: #CCACB3;
+  }
+   
+  /* responsive navbar toggle button */
+  .navbar #nav-check, .navbar .nav-btn{
+    display: none;
+  }
+   
+  @media (max-width:700px) {
+    .navbar .nav_links button {
+      padding: 10px 20px;
+      font-size:  18px;
+      margin: 0;
+    }
+    .navbar .nav_links a{
+        display: none;
+      }
+      
+      .navbar .nav_header .nav_logo a{
+        font-family: 'Lobster', cursive;
+        color: #ffffff;
+        font-size: 40px;
+        text-decoration: none;
+      }
+   
+  }
