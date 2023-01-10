@@ -1,0 +1,30 @@
+.cagewall {
+    height: 100vh;
+    /* background-image: url('../../images/backlogin.png'); */
+    /* background-image: url('../../images/circle.png'); */
+    background-color: #C2CFE4;
+    background-repeat: no-repeat, repeat;
+    width: 100%;
+    background-position: right;
+    margin-top: -70px;
+    margin-right: 100px;
+}
+
+.area{
+    position: absolute;
+    top:20%;
+    left: 30%;
+}
+.addbuttons{
+    position: fixed;
+    top: 30%;
+}
+
+.buttons{
+    padding: 20px 200px;
+    background-color: #8E9AAF;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    border-radius: 17px;
+}

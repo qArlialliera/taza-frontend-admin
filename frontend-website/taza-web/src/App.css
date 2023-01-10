@@ -1,26 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
-*{
- margin: 0;
+
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+
 }
-.wellcome-man-image{
+
+.wellcome-man-image {
   height: 80%;
 }
-.wellcome-woman-image{float: right;}
-.wellcome-text-box{
+
+.wellcome-woman-image {
+  float: right;
+}
+
+.wellcome-text-box {
   align-items: center;
 }
 
-@media (max-width:700px) {
-  .wellcome-man-image {display: none;}
-  .wellcome-images{padding-right: 0px;}
-  .wellcome-woman-image{
-    width: 200px; 
-    margin-right: -90px
-    }
-  
+
+
+.active{
+  background-color: #414C60;
+
+}
+.active .links{
+  color: #fff !important;
 }
 
+.active img{
+  color:#fff;
+}
+
+
+
+@media (max-width:700px) {
+  .wellcome-man-image {
+    display: none;
+  }
+
+  .wellcome-images {
+    padding-right: 0px;
+  }
+
+  .wellcome-woman-image {
+    width: 200px;
+    margin-right: -90px
+  }
+
+}
