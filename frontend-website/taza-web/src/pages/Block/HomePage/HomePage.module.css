@@ -1,0 +1,11 @@
+.homepagewall {
+    height: 100vh;
+    /* background-image: url('../../images/backlogin.png'); */
+    /* background-image: url('../../images/circle.png'); */
+    background-color: #C2CFE4;
+    background-repeat: no-repeat, repeat;
+    width: 100%;
+    background-position: right;
+    margin-top: -70px;
+    margin-right: 100px;
+}

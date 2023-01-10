@@ -58,6 +58,21 @@
   .navbar #nav-check, .navbar .nav-btn{
     display: none;
   }
+  .exit_links{
+    color:#414C60;
+    float: right;
+    font-family: 'Nunito', sans-serif;
+  }
+  .exit_links a{    text-decoration: none;}
+  .exitBtn{
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 17px;
+    color: #414C60;
+    border-radius: 24px;
+    border: 1px solid #414C60;
+    padding: 15px 50px;
+  }
    
   @media (max-width:700px) {
     .navbar .nav_links button {
