@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import s from './Navbar.module.css'
 import { NavLink } from 'react-router-dom'
+import Tokenchange from '../../mobx/Tokenchange'
+import { observer } from 'mobx-react-lite'
 
-export const Navbar = () => {
-  const token = localStorage.getItem('token');
-  const [isAuth, setIsAuth] = useState(false);
 
-  const exit = () => {
-    localStorage.clear();
-    setIsAuth(!token)
-    alert(token)
+export const Navbar = observer (() => {
+  const accessToken = localStorage.getItem('accessToken');
+  const refreshToken = localStorage.getItem('refreshToken');
+  Tokenchange.addtoken(accessToken, refreshToken)
+
+  const exit =  () => {
+    Tokenchange.deletetoken()
+    localStorage.removeItem("refreshToken")
+    localStorage.removeItem("accessToken")
   }
-  const change = () => {
-    setIsAuth(true)
-  }
-
-  useEffect(() => {
-    if(token) setIsAuth(true)
-  }, []);
-
+  
 
 
   return (
@@ -31,14 +28,14 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {isAuth ?
+        {refreshToken ?
           <div class={s.exit_links}><NavLink to='/' className={s.exitBtn} onClick={() => exit()}>EXIT</NavLink></div>
           :
-          <div class={s.nav_links}><NavLink to='/login' className={s.loginBtn} onClick={() => change()}>SIGN UP</NavLink></div>
+          <div class={s.nav_links}><NavLink to='/login' className={s.loginBtn}>SIGN UP</NavLink></div>
         }
       </div>
     </div>
   )
 }
-
+)
 

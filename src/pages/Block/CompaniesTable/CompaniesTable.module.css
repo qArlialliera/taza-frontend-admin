@@ -21,8 +21,7 @@ h2{
 
 
 .tablecompany{
-    position: fixed;
-    top: 30%;
+    position: absolute;
     border-collapse: separate;
     border-spacing: 0px 20px;
 }
@@ -66,7 +65,7 @@ h2{
 @media (max-width:1400px) {
     .homepagegrid{margin-right: 20px;}
     .tablecompany {
-        padding: 20px 50px;
+        /* padding: 20px 50px; */
     }
 }
 

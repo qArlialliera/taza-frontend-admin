@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Sidebar } from '../sidebar/Sidebar'
 import s from './CompaniesTable.module.css'
 import axios from 'axios'
-
+import UserService from '../../../services/UserService'
+import Tokenchange from '../../../mobx/Tokenchange'
+import { instance } from '../../../services/instance'
 
 export const CompaniesTable = () => {
 
   const [data, setData] = useState('')
-  const token = localStorage.getItem('token');
+  const token = Tokenchange.access_token
   const config = {
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -15,13 +17,20 @@ export const CompaniesTable = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/v1/companies/all', config).then((response) => {
-      console.log(response.data)
-      setData(response.data);
+    instance.get('/companies/all', config).then((response)=>{
+        setData(response.data)
+      }).catch(error => {
+          console.log(error)
+        });
+  }, [data]);
+
+  const DeleteCompany = (id) => {
+    instance.delete(`companies/${id}`, config).then((response)=>{
+      console.log('success deleted -', id )
     }).catch(error => {
       console.log(error)
-    });
-  }, []);
+    })
+  }
 
 
   return (
@@ -37,6 +46,7 @@ export const CompaniesTable = () => {
                 <th>Address</th>
                 <th>Phone Num</th>
                 <th>Rating</th>
+                <th>Buttons</th>
               </tr>
             </thead>
             <tbody>
@@ -47,6 +57,10 @@ export const CompaniesTable = () => {
                     <td>{item.address}</td>
                     <td>{item.phoneNumber}</td>
                     <td>0</td>
+                    <td>
+                      <button className='secondary-little-button' onClick={()=>DeleteCompany(item.id)}>Delete</button>
+                      <button className='secondary-little-button'>Edit</button>
+                      </td>
                     <td />
                   </tr>
                 );

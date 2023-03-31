@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import s from './Logint.module.css'
@@ -7,21 +7,36 @@ import { useNavigate } from 'react-router-dom';
 import { Login_image } from './login_image';
 import { motion } from 'framer-motion';
 
+import Tokenchange from '../../mobx/Tokenchange';
+
 export const Login = () => {
   const [username, setEmail] = useState('')
   const [password, setPassword] = useState('')
   let navigate = useNavigate();
 
+  useEffect(() => {
+    const keyDownHandler = event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        findUser()
+      }
+    };
 
-  const findUser = (e) => {
-    e.preventDefault();
+    document.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, []);
+
+  const findUser = () => {
+    // e.preventDefault();
     const user = { username, password };
     UserService.loginUser(user).then((response) => {
-      console.log(response.data)
-      localStorage.setItem('token', response.data);
+      localStorage.setItem('accessToken', response.data.accessToken);
+      localStorage.setItem('refreshToken', response.data.refreshToken);
       navigate('/home')
-      console.log(localStorage.getItem('token'))
-
+      Tokenchange.addtoken(response.data.accessToken, response.data.refreshToken)
     }).catch(error => {
       console.log(error)
     })
@@ -45,7 +60,7 @@ export const Login = () => {
           <NavLink to='/profile' className={s.linkf} id="f">Forgot Password?</NavLink>
         </div>
         <div className={`${s.row} ${s.buttondiv}`}>
-          <NavLink to='#' type="submit" className={s.button} onClick={(e) => findUser(e)}>Log In</NavLink>
+          <NavLink to='#' type="submit" className={s.button} onClick={() => findUser()}>Log In</NavLink>
         </div>
 
 

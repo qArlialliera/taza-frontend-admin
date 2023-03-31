@@ -9,11 +9,12 @@ import { HomePage } from './pages/Block/HomePage/HomePage';
 import { CompaniesTable } from './pages/Block/CompaniesTable/CompaniesTable';
 import { AddPage } from './pages/Block/AddPage/AddPage';
 import { AddCompany } from './pages/Block/AddPage/AddCompany/AddCompany';
-
+import { AddServices } from './pages/Block/AddPage/AddCompany/AddServices/AddServices';
+import CompanyChange from './mobx/CompanyChange';
 
 function App() {
 
-
+  CompanyChange.addid(localStorage.getItem('lastCompanyData'))
 
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
         <Route path='/companies' element={<CompaniesTable/>} />
         <Route path='/add' element={<AddPage/>} />
         <Route path='/add/company' element={<AddCompany/>} />
+        <Route path='/add/services' element={<AddServices/>} />
 
       </Routes>
     </Router>

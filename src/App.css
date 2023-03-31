@@ -22,19 +22,119 @@
 
 
 
-.active{
+.active {
   background-color: #414C60;
 
 }
-.active .links{
+
+.marginTop20{
+  margin-top: 20px;
+}
+
+.active .links {
   color: #fff !important;
 }
 
-.active img{
-  color:#fff;
+.active img {
+  color: #fff;
+}
+
+.secondary_text {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+
+  display: flex;
+  align-items: center;
+
+  color: #414C60;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-inputs {
+  max-width: 1000px;
+}
+
+.progress-pointer {
+  width: 10px;
+  height: 10px;
+  background: #C2CFE4;
+  border: 1px solid #414C60;
+  border-radius: 100px;
+  margin-inline: 5px;
+}
+
+.progress-pointer-active {
+  background: #414C60;
+}
+
+.active {
+  color: red
+}
+
+.secondary-button {
+  color: #000000;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  background: #C2CFE4;
+  border: 1px solid #414C60;
+  border-radius: 11px;
+  padding: 15px 40px;
+  margin: 5px;
+}
+.secondary-little-button{
+  color: #000000;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  background: #C2CFE4;
+  border: 1px solid #414C60;
+  border-radius: 11px;
+  padding: 5px 15px;
+  margin: 5px;
 }
 
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.active-secondary-button {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  border: 1px solid #414C60;
+  border-radius: 11px;
+  padding: 15px 40px;
+  color: #FFFFFF;
+  background: #414C60;
+  margin-inline: 5px;
+}
 
 @media (max-width:700px) {
   .wellcome-man-image {
