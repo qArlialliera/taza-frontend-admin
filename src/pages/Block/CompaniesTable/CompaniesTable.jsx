@@ -5,10 +5,12 @@ import axios from 'axios'
 import UserService from '../../../services/UserService'
 import Tokenchange from '../../../mobx/Tokenchange'
 import { instance } from '../../../services/instance'
+import { Modal } from 'antd'
 
 export const CompaniesTable = () => {
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState('')
+  const [currentId, setCurrentId] = useState('')
   const token = Tokenchange.access_token
   const config = {
     headers: {
@@ -17,20 +19,27 @@ export const CompaniesTable = () => {
   };
 
   useEffect(() => {
-    instance.get('/companies/all', config).then((response)=>{
-        setData(response.data)
-      }).catch(error => {
-          console.log(error)
-        });
+    instance.get('/companies/all', config).then((response) => {
+      setData(response.data)
+    }).catch(error => {
+      console.log(error)
+    });
   }, [data]);
 
-  const DeleteCompany = (id) => {
-    instance.delete(`companies/${id}`, config).then((response)=>{
-      console.log('success deleted -', id )
+  const DeleteCompany = () => {
+    instance.delete(`companies/${currentId}`, config).then((response) => {
+      console.log('success deleted -', currentId)
     }).catch(error => {
       console.log(error)
     })
   }
+  const openModal = (id) => {
+    setCurrentId(id)
+    setIsModalOpen(true);
+  };
+  const closeModal = (id) => {setIsModalOpen(false);};
+  
+
 
 
   return (
@@ -58,9 +67,9 @@ export const CompaniesTable = () => {
                     <td>{item.phoneNumber}</td>
                     <td>0</td>
                     <td>
-                      <button className='secondary-little-button' onClick={()=>DeleteCompany(item.id)}>Delete</button>
+                      <button className='secondary-little-button' onClick={()=>openModal(item.id)}>Delete</button>
                       <button className='secondary-little-button'>Edit</button>
-                      </td>
+                    </td>
                     <td />
                   </tr>
                 );
@@ -69,6 +78,18 @@ export const CompaniesTable = () => {
           </table>
         </div>
       </div>
+
+      <Modal open={isModalOpen}
+        onOk={() => DeleteCompany()}
+        onCancel={closeModal}
+        okText="Delete"
+        className={s.modal_container}
+      >
+        <p className='modal-primary-text'>Are you sure?</p>
+      </Modal>
+
     </div>
   )
 }
+
+// onClick={()=>DeleteCompany(item.id)}
