@@ -6,17 +6,23 @@ import UserService from '../../../services/UserService'
 import Tokenchange from '../../../mobx/Tokenchange'
 import { instance } from '../../../services/instance'
 import { Modal } from 'antd'
+import { Buffer } from 'buffer';
 
 export const CompaniesTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState('')
   const [currentId, setCurrentId] = useState('')
-  const token = Tokenchange.access_token
+  const [photo, setPhoto] = useState()
+  // const token = Tokenchange.access_token
+
+  const token = localStorage.getItem('accessToken');
   const config = {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
   };
+
+  
 
   useEffect(() => {
     instance.get('/companies/all', config).then((response) => {
@@ -24,7 +30,18 @@ export const CompaniesTable = () => {
     }).catch(error => {
       console.log(error)
     });
-  }, [data]);
+
+    axios.get('http://localhost:8080/private/user/user-details', config).then((res)=>{
+      // console.log('rr', res.data)
+      // const data = Buffer.from(res.data.photo, 'binary').toString('base64');
+      // console.log(`data:image/jpeg;base64,${data}`)
+      setPhoto(res.data.photo);
+    }).catch(error => {
+      console.error(error);
+    });
+  
+
+  }, [token]);
 
   const DeleteCompany = () => {
     instance.delete(`companies/${currentId}`, config).then((response) => {
@@ -43,10 +60,11 @@ export const CompaniesTable = () => {
 
 
   return (
-    <div className={s.cagewall}>
+    <div className="cagewall">
       <Sidebar />
       <div className={s.homepagegrid}>
         <h2>All Companies</h2>
+
         <div className={s.table}>
           <table className={s.tablecompany}>
             <thead>

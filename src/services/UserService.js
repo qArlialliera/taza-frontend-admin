@@ -32,6 +32,9 @@ class UserService {
     getListcompany(){
         return axios.get(COMPANIES_ALL_LIST_REST_API_URL, config)
     }
+    getUserData(){
+        return axios.get('http://localhost:8080/private/user/user-details', config)
+    }
     
 }
 

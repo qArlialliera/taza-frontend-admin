@@ -61,9 +61,9 @@ export const AddServices = (companydata) => {
     }
 
     return (
-        <div className={s.cagewall}>
+        <div className="cagewall">
             <Sidebar />
-            <div className={s.area}>
+            <div className="area">
                 <h2>Add Company</h2>
                 <p className='secondary_text'>Select categories. Please, select one by one</p>
                 <div className={s.addforms}>

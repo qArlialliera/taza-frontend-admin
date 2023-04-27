@@ -6,9 +6,9 @@ import s from './AddPage.module.css'
 export const AddPage = () => {
   
   return (
-    <div className={s.cagewall}>
+    <div className="cagewall">
       <Sidebar />
-      <div className={s.area}>
+      <div className="area">
         <h2>Add</h2>
         <div className={s.addbuttons}>
 

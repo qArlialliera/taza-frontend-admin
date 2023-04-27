@@ -17,6 +17,7 @@
 
 h2{
     font-family: 'Nunito', sans-serif;
+    margin-bottom: 10px;
 }
 
 
@@ -81,7 +82,7 @@ h2{
     }
     .homepagegrid{margin-right: 20px;}
     .tablecompany {
-        padding: 20px 20px;
+        padding: 0px 20px;
     }
 }
 

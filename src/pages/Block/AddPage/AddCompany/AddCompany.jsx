@@ -50,9 +50,9 @@ export const AddCompany = () => {
 
 
   return (
-    <div className={s.cagewall}>
+    <div className="cagewall">
       <Sidebar />
-      <div className={s.area}>
+      <div className="area">
         <h2>Add Company</h2>
         <p className='secondary_text'>Company Information</p>
         <div className={s.addforms}>

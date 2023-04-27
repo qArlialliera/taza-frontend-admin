@@ -11,13 +11,6 @@
     /* overflow-y: scroll; */
 }
 
-.area{
-    position: absolute;
-    top: 20vh;
-    left: 30vw;
-    width: 68%;
-    
-}
 .addforms{
     position: relative;
     top: 30%;
