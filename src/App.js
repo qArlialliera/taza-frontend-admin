@@ -1,20 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import { Wellcome } from './Wellcome/Wellcome';
-import { Navbar } from './pages/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Login } from './pages/Login/Login';
-import { HomePage } from './pages/Block/HomePage/HomePage';
-import { CompaniesTable } from './pages/Block/CompaniesTable/CompaniesTable';
-import { AddPage } from './pages/Block/AddPage/AddPage';
-import { AddCompany } from './pages/Block/AddPage/AddCompany/AddCompany';
-import { AddServices } from './pages/Block/AddPage/AddCompany/AddServices/AddServices';
+import { HomePage } from './pages/AfterLogin/HomePage/HomePage';
+import { CompaniesTable } from './pages/AfterLogin/CompaniesTable/CompaniesTable';
+import { AddPage } from './pages/AfterLogin/AddPage/AddPage';
 import CompanyChange from './mobx/CompanyChange';
-import { AdminPanel } from './pages/Block/AdminPanel/AdminPanel';
-import { Messages } from './pages/Block/Messages/Messages';
-import { Chats } from './pages/Block/Messages/Chats';
-import { AddCategory } from './pages/Block/AddPage/WhatAdd/AddCategory';
+import { AdminPanel } from './pages/AfterLogin/AdminPanel/AdminPanel';
+import { Messages } from './pages/AfterLogin/Messages/Messages';
+import { Chats } from './pages/AfterLogin/Messages/Chats';
+import { AddCategory } from './pages/AfterLogin/AddPage/WhatAdd/AddCategory';
+import { Navbar } from './pages/Components/Navbar/Navbar';
+import { Login } from './pages/BeforeLogin/Login/Login';
+import { Wellcome } from './pages/BeforeLogin/Wellcome/Wellcome';
 
 function App() {
 
@@ -26,15 +24,15 @@ function App() {
       <Routes>
         <Route path='/' exact element={<Wellcome />} />
         <Route path='/login' element={<Login />} />
+
         <Route path='/home' element={<HomePage />} />
         <Route path='/messages' element={<Messages />} />
         <Route path='/messages/сhat' element={<Chats />} />
         <Route path='/companies' element={<CompaniesTable/>} />
         <Route path='/admincontrol' element={<AdminPanel/>} />
         <Route path='/add' element={<AddPage/>} />
-        <Route path='/add/company' element={<AddCompany/>} />
         <Route path='/add/category' element={<AddCategory/>} />
-        <Route path='/add/services' element={<AddServices/>} />
+        {/* <Route path='/chat/' element={<AddCategory/>} /> */}
 
       </Routes>
     </Router>
