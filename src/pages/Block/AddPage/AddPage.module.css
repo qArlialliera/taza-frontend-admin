@@ -1,26 +1,11 @@
-.cagewall {
-    height: 100vh;
-    /* background-image: url('../../images/backlogin.png'); */
-    /* background-image: url('../../images/circle.png'); */
-    background-color: #C2CFE4;
-    background-repeat: no-repeat, repeat;
-    width: 100%;
-    background-position: right;
-    margin-top: -70px;
-    margin-right: 100px;
+.addbuttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.area{
-    position: absolute;
-    top:20%;
-    left: 30%;
-}
-.addbuttons{
-    position: fixed;
-    top: 30%;
-}
-
-.buttons{
+.buttons {
     padding: 20px 200px;
     background-color: #8E9AAF;
     color: white;
@@ -28,3 +13,66 @@
     text-decoration: none;
     border-radius: 17px;
 }
+
+.newCategory {
+    /* max-width: 37vw; */
+    display: flex;
+    flex-direction: column;
+
+}
+
+.newCategory input {
+    margin-top: 20px;
+}
+
+.newCategory button {
+    margin-inline: 0;
+    align-self: end;
+}
+
+.categoriesContainer {
+    padding: 10px;
+    /* width: 100%; */
+    border: 1px solid #414C60;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.categoriesContainer p {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #414C60;
+}
+
+.modalP{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #414C60;
+
+    align-self: center;
+}
+

@@ -177,13 +177,21 @@ input[type=number] {
   margin-top: -70px;
   margin-right: 100px;
 } */
-
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-modal .ant-modal-content {
+  margin-top: 35vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 .area {
   position: absolute;
   top: 20%;
-  left: 30%;
+  left: 27vw;
   max-width: 67%;
-  width:100%
+  width:100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .textarea-default {
@@ -270,15 +278,16 @@ input[type=number] {
   font-size: 15px;
 }
 
-@media (max-width: 1040px){
+
+
+@media (min-width:720px) and (max-width: 1200px){
   .area {
-    left:35%;
-    max-width: 62%;
+    left: 30%;
   }
 
 }
 
-@media (max-width:720px) {
+@media (min-width:480px) and (max-width:720px) {
   .area {
     left:38%;
     max-width: 58%;
@@ -298,18 +307,44 @@ input[type=number] {
 
 }
 
-@media (max-width:630px) {
+@media (min-width:480px) and (max-width:780px) {
   .area {
-    left:40%;
-    max-width: 55%;
+    left: 25%;
+    max-width: 70%;
   }
 }
 
 
-@media (max-width:400px) {
+@media (max-width:480px) {
   .area {
-    left:25%;
-    max-width: 65%;
+    left: 0;
+    width: 95vw;
+    max-width: fit-content;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    top: 15%;
+    margin-inline: 3vw;
+
+    /* left: 0;
+    width: 95vw;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    top: 5%;
+    margin-inline: 3vw;
+    height: 119vh; */
+  }
+
+  .sidebar{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    z-index: 1000;
+
+
   }
 }
 

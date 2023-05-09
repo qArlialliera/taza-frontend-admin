@@ -146,7 +146,7 @@
     text-align: left;   
     color: #000000;
 }
-@media (max-width: 1040px){
+@media (min-width:480px) and (max-width: 1040px){
     .homepagegrid {
         grid-template-areas:
             "grid_message"
@@ -158,7 +158,20 @@
     }
 }
 
-@media (max-width:400px) {
+@media (max-width:480px) {
+    .homepagewall{
+        margin-right: 0px;
+    }
+    .homepagegrid {
+        grid-template-areas:
+            "grid_message"
+            "grid_control"
+            "grid_statistic";
+    }
+    .grid_message{
+        max-width: max-content  ;
+    }
+
     .btn{
         padding: 11px 14px;
     }

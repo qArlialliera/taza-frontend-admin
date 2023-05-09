@@ -5,6 +5,7 @@
     padding: 30px 50px;
     position: relative;
     /* background-color: #C2CFE4; */
+    z-index: 100000;
   }
   .navbar .nav_header{
     display: inline;

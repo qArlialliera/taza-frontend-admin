@@ -1,24 +1,13 @@
-.sideBar{
-    position: absolute;
-    top: 30%;
+.sideBar {
+    position: relative;
+    top: 20vh;
     margin-left: 11vh;
+    width: 280px;
+    z-index: 1000;
 }
 
-.li_style:hover{
-    background-color: #414C60;
-}
-.li_style:hover .links{
-    color: #fff !important;
-}
 
-.li_style::after{
-    background-color: #414C60;
-}
-.li_style:hover .icon{
-    color: #fff;
-}
-
-.links{
+.links {
     text-decoration: none;
     color: #023047;
     font-family: 'Nunito', sans-serif;
@@ -30,31 +19,38 @@
     flex-wrap: wrap;
     flex-direction: row;
 
-    padding: 15px 75px;
+    padding: 15px 40px;
     border: 1px solid #414C60;
     border-radius: 20px;
     margin-bottom: 15px;
+    /* background-color: #C2CFE4; */
+
+
 }
 
-
+.ul {
+    display: flex;
+    flex-direction: column;
+}
 
 .links p {
     margin-left: 20px;
 }
+
 ul {
     list-style-type: none;
-  }
+}
 
-.active{
-    background-color: #414C60;
-    padding: 15px 75px;
+.active {
+    background-color: #414C60 !important;
+    padding: 15px 40px;
     border: 1px solid #414C60;
     border-radius: 20px;
     margin-bottom: 15px;
 }
 
 
-@media (max-width:1400px) {
+/* @media (max-width:1400px) {
     .sideBar{
         margin-left: 6vh;
     }
@@ -85,18 +81,71 @@ ul {
 }
 
 
-@media (max-width:600px) {
+@media (min-width:480px) and (max-width:600px) {
     .links{
         padding: 15px 15px;
     }
 
+} */
+@media (min-width:1200px) and (max-width:1500px) {
+    .sideBar {
+        margin-left: 5vh;
+        width: 242px;
+    }
+}
+@media (min-width:780px) and (max-width:1200px) {
+    .sideBar {
+        margin-left: 2vh;
+        width: 242px;
+    }
 }
 
-@media (max-width:400px) {
-    .links{
-        padding: 15px 15px;
+@media (min-width:480px) and (max-width:780px) {
+    .sideBar {
+        margin-left: 2vh;
+        width: max-content;
     }
-    .links img{
-        width: 20px;
+
+    .links p {
+        display: none;
     }
+}
+
+@media (max-width:480px) {
+    .sideBar {
+        width: 100%;
+        display: flex;
+        margin-left: 0;
+        justify-content: center;
+
+        position: absolute;
+        bottom: 0;
+        top: initial;
+
+        margin-bottom: 0;
+
+        background: #C2CFE4;
+        border-radius: 30px;
+
+
+        box-shadow: 1px -6px 18px 1px rgba(34, 60, 80, 0.2);
+    }
+
+
+    .ul {
+        width: 100%;
+        justify-content: space-between;
+        margin: 23px;
+        flex-direction: row;
+    }
+
+    .links p {
+        display: none;
+    }
+
+    .links {
+        padding: 15px;
+        margin-bottom: 0;
+    }
+
 }

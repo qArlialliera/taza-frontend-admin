@@ -12,6 +12,8 @@ export const AddPage = () => {
         <h2>Add</h2>
         <div className={s.addbuttons}>
 
+          {/* <NavLink to="/add/company" className={s.buttons}>Company</NavLink> */}
+          <NavLink to="/add/category" className={s.buttons}>Category</NavLink>
           <NavLink to="/add/company" className={s.buttons}>Company</NavLink>
 
         </div>

@@ -1,65 +1,43 @@
 .logn_page {
+
   height: 100vh;
-  /* background-image: url('../../images/backlogin.png'); */
-  background-image: url('../../images/Ellipselogin.png');
+  background-image: url('../../images/loginBack.png');
   background-color: #C2CFE4;
   background-repeat: no-repeat, repeat;
   width: 100%;
-  background-position: left;
+  background-position: right;
   margin-top: -70px;
-  animation: AnimateBG 20s ease infinite;
+  background-size: 100%;
 }
 
-@keyframes AnimateBG { 
-  0%{rotate:0% 50%}
-  50%{rotate:100% 50%}
-  100%{rotate:0% 50%}
+.login_inputs{
+  margin-top: 50px;
 }
-
-.login_forms {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  padding: 0px;
-  width: 35%;
-  display: block;
-}
-
-.title {
-  color: #023047;
-  font-family: 'Nunito', sans-serif;
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  color: #023047;
-  font-size: 27px;
-  font-family: 'Nunito', sans-serif;
-  margin-bottom: 30px;
-}
-
-.input {
+.login_inputs input {
+  border: 1px solid #023047;
+  border-radius: 5px;
   width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  border-color: white;
-  background-color: transparent;
-  box-shadow: none;
-  border-style: solid;
-  padding: 20px;
-  margin-bottom: 20px;
   outline: none;
 }
 
-.input:focus {
-  border-color: #414C60;
+.login_inputs input::placeholder{
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  color: #678391;
 }
 
-.input::placeholder {
-  color: #414C60;
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 15vh;
+  position: relative;
 }
 
 .button {
@@ -72,83 +50,83 @@
   font-family: 'Lobster', cursive;
   font-size: 16px;
   margin-top: 30px;
-}
 
-.align_right {
-  float: right;
-}
-
-.row {
   display: flex;
+  justify-content: center;
+}
+
+.login_forms {
+  width: 500px;
+  display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 
-.buttondiv {
-  width: 100%;
+.login_forms h3 {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 47px;
+  line-height: 120%;
+  color: #023047;
 }
 
-.image {
-  margin-left: 300px;
-  padding-top: 100px;
-  width: 20%;
+.login_forms p {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+
+  color: #023047;
+
 }
 
-@media (max-width:1200px) {
-  .input {
-    width: 100%;
-  }
-
-  .logn_page {
-    background-position: -188px;
-  }
-}
-
-@media (max-width:850px) {
-  .login_forms {
-    padding-right: 40px;
-  }
-
-  .logn_page {
-    background-position: -300px;
-  }
-}
-
-@media (max-width:620px) {
-  .login_forms {
-    padding-right: 40px;
-  }
-
-  .logn_page {
-    background-size: 500px;
-    background-position: -250px;
-    background-color: #414C60;
-  }
-
-  .input:focus {
-    border-color: #ffffff;
-  }
-
-  .input::placeholder {
-    color: #fff;
-  }
-
-  .title {
-    color: #fff;
-  }
-
-  .subtitle {
-    color: #fff;
-  }
-}
-
-@media (max-width:450px) {
+@media (max-width: 480px){
   .logn_page {
     background-image: none;
+    
   }
 
-  .login_forms {
-    position: absolute;
-    left: 0%;
-    padding-left: 30px;
+  .image {
+    display: none;
+  }
+
+  .login_forms{
+    width: 80vw;
+    justify-content: center;
+  }
+
+  .row{
+    display: block;
+  }
+}
+
+@media (min-width:480px) and (max-width: 780px){
+  .logn_page {
+    background-size: cover;
+    /* height: initial; */
+  }
+
+  .image {
+    position: relative;
+  }
+
+  .login_forms{
+    width: 80vw;
+    justify-content: center;
+  }
+
+  .row{
+    /* display: block; */
+  }
+}
+
+@media (min-width:780px) and (max-width: 1200px){
+  .logn_page{
+    height: initial;
+    background-size: cover;
   }
 }

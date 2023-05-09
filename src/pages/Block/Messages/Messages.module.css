@@ -1,0 +1,434 @@
+.chatContainer {
+  display: flex;
+  flex-direction: row;
+  width: inherit;
+  height: 70vh;
+
+  background: #C2CFE4;
+  box-shadow: 9px 19px 51px rgba(0, 0, 0, 0.25);
+  border-radius: 52px;
+
+  /* padding: 50px; */
+}
+
+.chatContainer .chatList {
+  width: 30%;
+  background: #414C60;
+  box-shadow: -9px 0px 52px rgba(0, 0, 0, 0.25);
+  border-radius: 52px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 40px;
+}
+
+
+.chatContainer .chatList .chatListItem {
+  background: #414C60;
+  border: none;
+  /* background: #8E9AAF; */
+  border-radius: 52px;
+
+  padding: 5px 20px;
+  margin: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.chatContainer .chatList .chatListItemActive {
+  border: none;
+  background: #8E9AAF;
+  border-radius: 52px;
+  padding: 5px 20px;
+  margin: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.chatContainer .chatList h4 {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
+  margin-bottom: 30px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 1.12869px;
+
+  color: #FFFFFF;
+}
+
+.chatListItem img {
+  width: 49.66px;
+  height: 49.66px;
+  border-radius: 52px;
+}
+
+.chatListItemActive img {
+  width: 49.66px;
+  height: 49.66px;
+  border-radius: 52px;
+}
+
+.text {
+  justify-self: center;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.textName {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: flex-end;
+  text-transform: capitalize;
+
+  color: #FFFFFF;
+}
+
+.text .bodyName {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14.673px;
+  line-height: 17px;
+
+  color: #cfcfcf;
+
+}
+
+.alltext {
+  display: flex;
+  flex-direction: row;
+  width: -webkit-fill-available;
+  justify-content: space-between;
+}
+
+.timeText {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14.673px;
+  line-height: 17px;
+
+  color: #cfcfcf;
+  align-self: end;
+
+}
+
+.chatListItemBtn {
+  width: 100%;
+}
+
+.lines {
+  height: 70px;
+  width: 70%;
+  padding: 30px 50px;
+  position: relative;
+  left: 30vw;
+  top: 10vh
+}
+
+.buttonSend {
+  border: 1px solid #414C60;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+
+  display: flex;
+  align-items: center;
+
+  color: #414C60;
+}
+
+.row {
+  display: flex;
+  /* align-items: center; */
+  justify-content: end;
+}
+
+
+.messagesContainer {
+  padding: 50px;
+  width: 100%
+}
+
+.messagesContainer .msgHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 20px
+}
+
+.messagesContainer .msgHeader img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+
+.messagesContainer .msgHeader h6 {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 31px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.125px;
+  text-transform: capitalize;
+
+  color: #414C60;
+}
+
+.messagesContainer .msgInput {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: stretch;
+  position: absolute;
+  bottom: 10px;
+  width: -webkit-fill-available;
+  margin-right: 20px;
+}
+
+.messagesContainer .msgInput img {
+  width: 40px;
+  height: 40px;
+}
+
+.messagesContainer .msgInput button {
+  padding: 10px;
+  background: #414C60;
+  border-radius: 20px;
+  border: none;
+}
+
+.messagesContainer .msgInput input {
+  background: #414C60;
+  border-radius: 20px;
+  margin-bottom: 0;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+
+  color: #C2CFE4;
+}
+
+
+.messagesContainer .msgInput input::placeholder {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+
+  color: #C2CFE4;
+}
+
+.msgBody {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 100%;
+
+  overflow-y: scroll;
+  max-height: 42vh;
+
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.msgBody::-webkit-scrollbar {
+  display: none;
+}
+
+.chatBubbleMine {
+  background: #EFD3D7;
+  border-radius: 20px;
+  padding: 10px 25px;
+  /* max-width: 50%; */
+  align-self: flex-end;
+
+
+  display: flex;
+  /* flex-direction: column; */
+  gap: 30px;
+
+}
+
+.chatBubbleMine .textName {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+
+  color: #000000;
+
+  text-transform: none
+}
+
+.chatBubble .textName {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+
+  color: #FFFFFF;
+  text-transform: none
+}
+
+.chatBubble {
+  background: #414C60;
+  border-radius: 20px;
+  padding: 10px 25px;
+  /* max-width: 50%; */
+
+  display: flex;
+  /* flex-direction: column; */
+  gap: 30px;
+}
+
+.display {
+  display: flex;
+}
+
+.displayleft {
+  display: flex;
+  align-items: end;
+  align-self: flex-end;
+}
+
+.timestamp {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+
+  color: #414C60;
+  align-self: flex-end;
+}
+
+.chatBubble .timestamp {
+  color: #EFD3D7;
+}
+
+.chats{
+  width: 100%
+}
+
+@media (max-width: 480px) {
+  .chatList {
+    max-width: 20%
+  }
+  .messagesContainer{
+    padding: 16px
+  }
+
+  .messagesContainer  .msgInput{
+    gap: 5px
+  }
+  .chatContainer .chatList h4 {
+    display: none;
+  }
+
+  .alltext {
+    display: none;
+  }
+
+  .chatListItemActive {
+    border: none;
+    background: #8E9AAF;
+    border-radius: 52px;
+    padding: 5px 5px;
+    margin: 10px;
+    /* width: 90%; */
+    display: flex;
+    /* flex-direction: row; */
+    width: -webkit-fill-available;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .chatListItem {
+    border: none;
+    padding: 5px 5px;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;  
+  }
+}
+
+@media (min-width:780px) and (max-width:1200px) {
+  .timeText{
+    display: none;
+  }
+
+  .chatListItem{
+    align-items: center;
+  }
+
+  .chatListItemActive{
+    align-items: center;
+  }
+}
+
+@media (min-width:480px) and (max-width:780px) {
+  .alltext {
+    display: none;
+  }
+.messagesContainer{
+  padding: 17px;
+}
+.messagesContainer  .msgInput{
+  gap: 10px
+}
+}

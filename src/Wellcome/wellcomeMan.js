@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion"
+import s from './Wellcome.module.css'
 
 const manVar = {
     initial: {
@@ -21,7 +22,7 @@ const manVar = {
 
 export const Wellcome_man = () => {
     return (
-        <div>
+        <div className={s.man_Svg}>
             <svg height="701" width="340" viewBox="0 0 340 781" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_96_1176)">
                     <motion.path d="M150.334 25.9804C150.334 18.0001 146.059 10.9952 139.291 6.1183C130.207 -0.531966 118.094 -1.77335 107.674 2.57149C78.5514 14.7193 63.5002 17.8228 66.8845 47.2613C67.686 54.5323 72.1391 60.8279 73.8312 67.9215C86.3888 122.276 141.339 112.523 147.662 83.9708C171.709 56.8377 150.334 57.3697 150.334 25.9804Z" fill="#FEEAFA" 

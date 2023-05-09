@@ -13,6 +13,8 @@ import { AddServices } from './pages/Block/AddPage/AddCompany/AddServices/AddSer
 import CompanyChange from './mobx/CompanyChange';
 import { AdminPanel } from './pages/Block/AdminPanel/AdminPanel';
 import { Messages } from './pages/Block/Messages/Messages';
+import { Chats } from './pages/Block/Messages/Chats';
+import { AddCategory } from './pages/Block/AddPage/WhatAdd/AddCategory';
 
 function App() {
 
@@ -25,11 +27,13 @@ function App() {
         <Route path='/' exact element={<Wellcome />} />
         <Route path='/login' element={<Login />} />
         <Route path='/home' element={<HomePage />} />
-        <Route path='//messages' element={<Messages />} />
+        <Route path='/messages' element={<Messages />} />
+        <Route path='/messages/сhat' element={<Chats />} />
         <Route path='/companies' element={<CompaniesTable/>} />
         <Route path='/admincontrol' element={<AdminPanel/>} />
         <Route path='/add' element={<AddPage/>} />
         <Route path='/add/company' element={<AddCompany/>} />
+        <Route path='/add/category' element={<AddCategory/>} />
         <Route path='/add/services' element={<AddServices/>} />
 
       </Routes>
