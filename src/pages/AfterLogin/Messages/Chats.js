@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Sidebar } from '../../Components/sidebar/Sidebar';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import s from './Messages.module.css'
-import { instance } from '../../../services/instance';
+import instance from '../../../services/instance';
 import Stomp, { over } from 'stompjs'
 import moment from 'moment';
 
@@ -14,7 +14,6 @@ export const Chats = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const config = { headers: { 'Authorization': 'Bearer ' + location.state.token } }
 
   const [messagesArray, setMessagesArray] = useState();
   const currentTimestamp = moment().format('yyyy-MM-DD[T]HH:mm:ss.SSS');
@@ -83,14 +82,14 @@ export const Chats = (props) => {
 
 
 const getMessages = () => {
-  instance.get(`/messages/${location.state.userData.list.id}`, config).then(res => {
+  instance.get(`/messages/${location.state.userData.list.id}`).then(res => {
       console.log('getMessages -', res.data)
       setMessagesArray(res.data)
   }).catch(err => console.log(err))
 }
 
 const changeStatus = (senderId) => {
-  instance.put(`/messages/change-status/${senderId}`, null, config).then(res=>{
+  instance.put(`/messages/change-status/${senderId}`, null).then(res=>{
     console.log('CHANGED! - ', res.data )
   }).catch(err=>console.log(err))
 }

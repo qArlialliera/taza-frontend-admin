@@ -3,16 +3,16 @@ import s from './Navbar.module.css'
 import { NavLink } from 'react-router-dom'
 import Tokenchange from '../../../mobx/Tokenchange'
 import { observer } from 'mobx-react-lite'
+import { motion} from 'framer-motion'
 
-
-export const Navbar = observer (() => {
+export const Navbar = observer(() => {
   const accessToken = localStorage.getItem('accessToken');
   const refreshToken = localStorage.getItem('refreshToken');
   Tokenchange.addtoken(accessToken, refreshToken)
 
 
-  
-  const exit =  () => {
+
+  const exit = () => {
     Tokenchange.deletetoken()
     localStorage.removeItem("refreshToken")
     localStorage.removeItem("accessToken")
@@ -32,9 +32,9 @@ export const Navbar = observer (() => {
 
         {refreshToken ?
           <div class={s.exit_links}>
-            
+
             <NavLink to='/' className={s.exitBtn} onClick={() => exit()}>EXIT</NavLink>
-            </div>
+          </div>
           :
           <div class={s.nav_links}><NavLink to='/login' className={s.loginBtn}>SIGN UP</NavLink></div>
         }

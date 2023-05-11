@@ -4,7 +4,7 @@
   background-image: url('../../../images/back1.png');
   background-color: #C2CFE4;
   background-repeat: no-repeat, repeat;
-  width: 100%;
+  width: -webkit-fill-available;
   background-position: right;
   margin-top: -70px;
   background-size: 100%;

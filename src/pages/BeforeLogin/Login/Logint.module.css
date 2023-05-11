@@ -1,8 +1,11 @@
 .logn_page {
+  height: 100vh;
+  background-color: #414C60;
+}
 
+.background{
   height: 100vh;
   background-image: url('../../../images/loginBack.png');
-  background-color: #C2CFE4;
   background-repeat: no-repeat, repeat;
   width: 100%;
   background-position: right;
@@ -10,6 +13,13 @@
   background-size: 100%;
 }
 
+
+
+.logn_page::-webkit-outer-spin-button,
+.logn_page::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .login_inputs{
   margin-top: 50px;
 }

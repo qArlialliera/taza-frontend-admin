@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import s from './Messages.module.css'
-import { instance } from '../../../services/instance';
+import instance from '../../../services/instance';
 import Stomp from 'stompjs'
 import Tokenchange from '../../../mobx/Tokenchange';
 import { Sidebar } from '../../Components/sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react-lite'
 import Repeater from '../../../mobx/Repeater';
+import { motion } from 'framer-motion'
+
 
 var stompClient = null;
 var SockJS = require('sockjs-client/dist/sockjs.js');
@@ -15,35 +17,14 @@ export const Messages = observer(() => {
   const navigate = useNavigate();
   //animation
 
-  const paragraphVariant = {
-    initial: {
-      y: 1000
-    },
-    visible: {
-      y: 0,
-      transition: {
-        type: "spring",
-        mass: 0.7,
-        damping: 20,
-        ease: "easeIn",
-      },
-    },
-    exit: {
-      y: -1000,
-      transition: { duration: 0.5, ease: "easeInOut" },
-    },
-  };
 
 
-  //token
-  const token = Tokenchange.access_token
-  const config = { headers: { 'Authorization': `Bearer ${token}` } };
 
   const [myData, setMyData] = useState('')
   const [chatList, setChatList] = useState('')
 
   const getChatList = () => {
-    instance.get('/messages/chat-rooms', config).then(res => {
+    instance.get('/messages/chat-rooms').then(res => {
       setChatList(res.data)
     }).catch(err => console.log(err))
   }
@@ -55,7 +36,7 @@ export const Messages = observer(() => {
   useEffect(() => {
     getChatList()
 
-    instance.get('user/user-details', config).then(function (response) {
+    instance.get('user/user-details').then(function (response) {
       setMyData(response.data)
     }).catch(function (error) {
       console.log(error);
@@ -65,13 +46,13 @@ export const Messages = observer(() => {
 
 
   const changeUser = (userData) => {
-    navigate('/messages/сhat', { state: { userData, myData, token } })
+    navigate('/messages/сhat', { state: { userData, myData } })
   }
 
   const connect = () => {
     var socket = new SockJS("http://192.168.31.156:8080/ws");
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, onConnected,  console.log("err"));
+    stompClient.connect({}, onConnected, console.log("err"));
   }
 
   const onConnected = () => {
@@ -86,8 +67,16 @@ export const Messages = observer(() => {
 
   return (
     <div className="cagewall">
-      <Sidebar />
-      <div className='area'>
+      <motion.div className='sidebar'>
+        <Sidebar />
+      </motion.div>
+      {/* <Sidebar /> */}
+      <motion.div className='area'
+        initial={{ y: 250 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        exit={{ y: -750 }}
+      >
         <h2>Chats</h2>
         {
           Array.isArray(chatList) && chatList.sort((a, b) => {
@@ -119,9 +108,9 @@ export const Messages = observer(() => {
                   <div className={s.textReverse}>
                     <p className={s.timeText}>{time}</p>
                     {
-                      list.status === 'DELIVERED'  && list.senderId != myData.id
-                      ? <p className={s.circle}>{list.newMessagesCount}</p>
-                      : null
+                      list.status === 'DELIVERED' && list.senderId != myData.id
+                        ? <p className={s.circle}>{list.newMessagesCount}</p>
+                        : null
                     }
                   </div>
                 </div>
@@ -129,7 +118,7 @@ export const Messages = observer(() => {
             )
           })
         }
-      </div>
+      </motion.div>
 
 
 

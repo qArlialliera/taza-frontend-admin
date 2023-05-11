@@ -2,43 +2,40 @@ import React, { useEffect, useState } from 'react'
 import { Sidebar } from '../../Components/sidebar/Sidebar';
 import s from './CompaniesTable.module.css'
 import axios from 'axios'
-import { instance } from '../../../services/instance'
-
+import instance from '../../../services/instance'
+import { motion } from 'framer-motion'
 
 export const CompaniesTable = () => {
   const [data, setData] = useState('')
 
-  const token = localStorage.getItem('accessToken');
-  const config = {
-    headers: {
-      'Authorization': `Bearer ${token}`,
-    },
-  };
-
-
-
   useEffect(() => {
 
     getCategories()
-  }, [token]);
+  }, []);
 
 
-const getCategories = () => {
-  instance.get('/companies/all', config).then((response) => {
-    setData(response.data)
-  }).catch(error => {
-    console.log(error)
-  });
-}
+  const getCategories = () => {
+    instance.get('/companies/all').then((response) => {
+      setData(response.data)
+    }).catch(error => {
+      console.log(error)
+    });
+  }
 
 
 
   return (
     <div className="cagewall">
-      <div className='sidebar'>
+      <motion.div className='sidebar'
+      >
         <Sidebar />
-      </div>
-      <div className='area'>
+      </motion.div>
+      <motion.div className='area'
+        initial={{ y: 250 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        exit={{ y: -750 }}
+      >
         <h2>All Companies</h2>
 
         <div className={s.table}>
@@ -67,7 +64,7 @@ const getCategories = () => {
             </tbody>
           </table>
         </div>
-      </div>
+      </motion.div>
 
 
     </div>

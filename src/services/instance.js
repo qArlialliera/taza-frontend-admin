@@ -3,7 +3,15 @@ import Tokenchange from "../mobx/Tokenchange";
 
 const token = Tokenchange.access_token
 
-export const instance = axios.create({
+const instance = axios.create({
     baseURL: 'http://localhost:8080/private',
-    // headers: {'Authorization': `Bearer ${token}`}
   });
+
+  instance.interceptors.request.use(function (config) {
+    // let token = JSON.parse(window.sessionStorage.getItem("accessToken"));
+    const token = Tokenchange.access_token
+    config.headers["Authorization"] = "Bearer " + token;
+    return config;
+  });
+
+export default instance

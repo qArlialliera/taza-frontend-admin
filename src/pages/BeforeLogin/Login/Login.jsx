@@ -34,13 +34,20 @@ export const Login = () => {
 
   return (
     <div className={s.logn_page}>
-      <div className={s.row}>
-        <motion.div className={s.image} initial={{ x: 0 }} animate={{ x: 50, transition: { duration: 3 } }} exit={{ x: 0 }}>
+      <motion.div className={s.background}
+        initial={{ x: 150 }} animate={{ x: 0 }} transition={{ duration: 0.75, ease: 'easeOut' }}
+      >
+
+
+      <motion.div className={s.row}
+        initial={{ x: 100 }} animate={{ x: 10 }} transition={{ duration: 0.75, ease: 'easeOut' }}
+      >
+        <div className={s.image} >
           <Login_image />
-        </motion.div>
-        <motion.div className={s.login_forms} initial={{ x: 0 }} animate={{ x: 50, transition: { duration: 3 } }} exit={{ x: 0 }}>
+        </div>
+        <div className={s.login_forms}>
           <h3>Welcome to Taza!</h3>
-          <p>Login with</p> 
+          <p>Login with</p>
           <div className={s.login_inputs}>
             <form >
               <input id="email" required type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}
@@ -53,8 +60,9 @@ export const Login = () => {
           <NavLink to='#' type="submit" className='primary_btn btn' onClick={() => findUser()}>Log In</NavLink>
 
 
+        </div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   )
 }

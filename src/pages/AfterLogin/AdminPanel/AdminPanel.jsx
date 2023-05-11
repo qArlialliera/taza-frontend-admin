@@ -1,51 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import s from '../HomePage/HomePage.module.css'
-import { instance } from '../../../services/instance';
+import instance from '../../../services/instance';
 import { Sidebar } from '../../Components/sidebar/Sidebar';
 
 export const AdminPanel = () => {
   const [isMorePressed, setIsMorePressed] = useState('')
   const [companies, setCompanies] = useState('')
-  const anim = {
-    // initial: { y: 10 },
-    // animate: { y: 0 },
-    // transition: {
-    //   type: "spring",
-    //   stiffness: 260,
-    //   damping: 20
-    // }
-  }
-  const token = localStorage.getItem('accessToken');
-  const config = { headers: { 'Authorization': `Bearer ${token}` } };
 
   useEffect(() => {
     getCompanies()
   }, [])
 
   const getCompanies = () => {
-    instance.get('/companies/all', config).then((res) => {
+    instance.get('/companies/all').then((res) => {
       setCompanies(res.data)
     }).catch(err => console.log(err))
   }
 
   const activateCompany = (id) => {
     console.log(id)
-    instance.put(`/companies/activate/${id}`, null, config).then((res) => {
+    instance.put(`/companies/activate/${id}`, null).then((res) => {
       getCompanies()
     }).catch(err => console.log(err))
   }
   return (
     <div className="cagewall">
-      <Sidebar />
-      <div className="area">
+      <motion.div className='sidebar'>
+        <Sidebar />
+      </motion.div>
+      <motion.div className='area'
+        initial={{ y: 250 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        exit={{ y: -750 }}
+      >
         <div className={s.messages}>
           <h2>Admin Control</h2>
           <h3>Not active companies</h3>
           {companies ? companies.map((item, index) => {
             if (item.active === false) {
               return (
-                <motion.div className={s.msg_box} variants={anim} initial="initial" animate="animate" whileHover={{ y: -5 }}>
+                <div className={s.msg_box}>
                   <div className='center column'>
                     <p className={s.sec_title_text}>{item.name} want to join</p>
                     {isMorePressed === index ?
@@ -81,7 +77,7 @@ export const AdminPanel = () => {
                         <button className="btn primary_btn" onClick={() => setIsMorePressed(index)}>More</button>
                       </div>}
                   </div>
-                </motion.div>
+                </div>
 
               )
             }
@@ -92,7 +88,7 @@ export const AdminPanel = () => {
           {companies ? companies.map((item, index) => {
             if (item.active === true) {
               return (
-                <motion.div className={s.msg_box} variants={anim} initial="initial" animate="animate" whileHover={{ y: -5 }}>
+                <div className={s.msg_box}>
                   <div className='center column'>
                     <p className={s.sec_title_text}>{item.name}</p>
                     {isMorePressed === index ?
@@ -124,7 +120,7 @@ export const AdminPanel = () => {
                         <button className="btn primary_btn" onClick={() => setIsMorePressed(index)}>More</button>
                       </div>}
                   </div>
-                </motion.div>
+                </div>
 
               )
             }
@@ -132,7 +128,7 @@ export const AdminPanel = () => {
           ).reverse() : null}
 
         </div>
-      </div>
+      </motion.div>
 
     </div>
   )
