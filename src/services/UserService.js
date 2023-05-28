@@ -3,9 +3,9 @@ import Tokenchange from '../mobx/Tokenchange';
 
 
 
-const USERS_LOGIN_REST_API_URL = "http://localhost:8080/public/auth/login";
-const COMPANIES_ADD_REST_API_URL = "http://localhost:8080/private/companies/add";
-const COMPANIES_ALL_LIST_REST_API_URL = "http://localhost:8080/private/companies/all";
+const USERS_LOGIN_REST_API_URL = "https://concerned-growth-production.up.railway.app/public/auth/login";
+const COMPANIES_ADD_REST_API_URL = "https://concerned-growth-production.up.railway.app/private/companies/add";
+const COMPANIES_ALL_LIST_REST_API_URL = "https://concerned-growth-production.up.railway.app/private/companies/all";
 
 
 
@@ -33,10 +33,10 @@ class UserService {
         return axios.get(COMPANIES_ALL_LIST_REST_API_URL, config)
     }
     getUserData(){
-        return axios.get('http://localhost:8080/private/user/user-details', config)
+        return axios.get('https://concerned-growth-production.up.railway.app/private/user/user-details', config)
     }
     getUserPhoto(photo){
-        return axios.get(`http://localhost:8080/public/file/photo/get/${photo}`)
+        return axios.get(`https://concerned-growth-production.up.railway.app/public/file/photo/get/${photo}`)
     }
 }
 
