@@ -10,6 +10,7 @@ import { AdminPanel } from '../AfterLogin/AdminPanel/AdminPanel'
 import { AddPage } from '../AfterLogin/AddPage/AddPage'
 import { AddCategory } from '../AfterLogin/AddPage/WhatAdd/AddCategory'
 import { AnimatePresence } from 'framer-motion';
+import { CompanyDetails } from '../AfterLogin/CompaniesTable/CompanyDetails';
 
 function AnimatedRoutes() {
     const location = useLocation();
@@ -23,6 +24,7 @@ function AnimatedRoutes() {
                 <Route path='/messages' element={<Messages />} />
                 <Route path='/messages/сhat' element={<Chats />} />
                 <Route path='/companies' element={<CompaniesTable />} />
+                <Route path='/companies/details' element={<CompanyDetails />} />
                 <Route path='/admincontrol' element={<AdminPanel />} />
                 <Route path='/add' element={<AddPage />} />
                 <Route path='/add/category' element={<AddCategory />} />

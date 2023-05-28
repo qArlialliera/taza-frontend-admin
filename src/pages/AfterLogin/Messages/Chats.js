@@ -5,7 +5,7 @@ import s from './Messages.module.css'
 import instance from '../../../services/instance';
 import Stomp, { over } from 'stompjs'
 import moment from 'moment';
-
+import { motion } from 'framer-motion'
 var stompClient = null;
 var SockJS = require('sockjs-client/dist/sockjs.js');
 export const Chats = (props) => {
@@ -24,7 +24,7 @@ export const Chats = (props) => {
 
   useEffect(() => {
     connect()
-    console.log('gd',location.state.myData.id)
+    console.log('gd', location.state.myData.id)
   }, []);
 
 
@@ -50,9 +50,9 @@ export const Chats = (props) => {
     var payloadData = JSON.parse(payload.body);
     setMessagesArray(messagesArray => {
       if (messagesArray.some(msg => msg.id === payloadData.id)) {
-        return messagesArray; 
+        return messagesArray;
       } else {
-        return [...messagesArray, payloadData]; 
+        return [...messagesArray, payloadData];
       }
     });
     console.log(messagesArray)
@@ -81,32 +81,37 @@ export const Chats = (props) => {
   }
 
 
-const getMessages = () => {
-  instance.get(`/messages/${location.state.userData.list.id}`).then(res => {
+  const getMessages = () => {
+    instance.get(`/messages/${location.state.userData.list.id}`).then(res => {
       console.log('getMessages -', res.data)
       setMessagesArray(res.data)
-  }).catch(err => console.log(err))
-}
+    }).catch(err => console.log(err))
+  }
 
-const changeStatus = (senderId) => {
-  instance.put(`/messages/change-status/${senderId}`, null).then(res=>{
-    console.log('CHANGED! - ', res.data )
-  }).catch(err=>console.log(err))
-}
+  const changeStatus = (senderId) => {
+    instance.put(`/messages/change-status/${senderId}`, null).then(res => {
+      console.log('CHANGED! - ', res.data)
+    }).catch(err => console.log(err))
+  }
 
 
   return (
     <div className={s.chats}>
 
-      <div className={s.messagesContainer}>
+      <motion.div className={s.messagesContainer}
+        initial={{ opacity: 0, y: 250 }}
+        animate={{opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        // exit={{ opacity: 0, y: -750 }}
+        >
         {
 
           <div className={s.messagesWholeBox}>
             <div className={s.msgHeader}>
-              <button className='btn primary_btn' onClick={()=>navigate('/messages')}>Back</button>
+              <button className='btn primary_btn' onClick={() => navigate('/messages')}>Back</button>
               <div className={s.info}>
-              <h6>{location.state.userData.list.username}</h6>
-              <img src={require('../../../images/newimg.png')} />
+                <h6>{location.state.userData.list.username}</h6>
+                <img src={require('../../../images/newimg.png')} />
               </div>
             </div>
 
@@ -117,23 +122,23 @@ const changeStatus = (senderId) => {
 
                   const date = new Date(msg.timestamp);
                   const time = date.toLocaleTimeString('en-GB', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit' },);
-                  
-                    if(msg.recipientId === location.state.userData.list.id || msg.recipientId === location.state.myData.id){
-                      return (
-                        <div key={msg.id}
-                          className={msg.senderId === location.state.myData.id ? `${s.displayleft}` : `${s.display}`}>
-                          <div
-                            className={msg.senderId === location.state.myData.id ? `${s.chatBubbleMine}` : `${s.chatBubble}`}>
-                            <p className={s.textName}>{msg.content}</p>
-                            <p className={s.timestamp}>{time}</p>
-                          </div>
+
+                  if (msg.recipientId === location.state.userData.list.id || msg.recipientId === location.state.myData.id) {
+                    return (
+                      <div key={msg.id}
+                        className={msg.senderId === location.state.myData.id ? `${s.displayleft}` : `${s.display}`}>
+                        <div
+                          className={msg.senderId === location.state.myData.id ? `${s.chatBubbleMine}` : `${s.chatBubble}`}>
+                          <p className={s.textName}>{msg.content}</p>
+                          <p className={s.timestamp}>{time}</p>
                         </div>
-                      )
-                    }
-                    
-                  })
-                
+                      </div>
+                    )
                   }
+
+                })
+
+              }
             </div>
 
             <div className={s.msgInput}>
@@ -150,7 +155,7 @@ const changeStatus = (senderId) => {
           </div>
 
         }
-      </div>
+      </motion.div>
     </div>
   )
 }

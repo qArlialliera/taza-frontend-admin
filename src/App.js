@@ -21,7 +21,6 @@ function App() {
   CompanyChange.addid(localStorage.getItem('lastCompanyData'))
   document.body.style.backgroundColor = "#C2CFE4"
 
-  // 
   
   return (
     <Router>

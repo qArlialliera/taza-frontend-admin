@@ -20,7 +20,7 @@ export const AddPage = () => {
         <h2>Add</h2>
         <div className={s.addbuttons}>
           <NavLink to="/add/category" className={s.buttons}>Category</NavLink>
-          <NavLink to="/add/admin" className={s.buttons}>Admin</NavLink>
+          {/* <NavLink to="/add/admin" className={s.buttons}>Admin</NavLink> */}
 
         </div>
       </motion.div>

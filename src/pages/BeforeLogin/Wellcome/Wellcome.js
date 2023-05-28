@@ -10,7 +10,7 @@ export const Wellcome = () => {
             initial={{ x: 150 }} 
             animate={{ x: 0 }} 
             transition={{ duration: 0.75, ease: 'easeOut' }}
-            // exit={{x:-150}}
+            // exit={{x:-50}}
             >
             <motion.div className={s.row}
                 initial={{ x: 100 }} animate={{ x: 10 }} transition={{ duration: 0.75, ease: 'easeOut' }}>

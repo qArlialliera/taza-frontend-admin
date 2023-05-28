@@ -35,7 +35,9 @@ class UserService {
     getUserData(){
         return axios.get('http://localhost:8080/private/user/user-details', config)
     }
-    
+    getUserPhoto(photo){
+        return axios.get(`http://localhost:8080/public/file/photo/get/${photo}`)
+    }
 }
 
 export default new UserService();

@@ -35,7 +35,7 @@ export const Login = () => {
   return (
     <div className={s.logn_page}>
       <motion.div className={s.background}
-        initial={{ x: 150 }} animate={{ x: 0 }} transition={{ duration: 0.75, ease: 'easeOut' }}
+        initial={{ x: 150 }} animate={{ x: 0 }} transition={{ duration: 0.75, ease: 'easeOut', delay:0.75 }}
       >
 
 

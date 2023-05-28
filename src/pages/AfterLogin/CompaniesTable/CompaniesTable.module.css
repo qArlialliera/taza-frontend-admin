@@ -1,22 +1,20 @@
-
-
-h2{
+h2 {
     font-family: 'Nunito', sans-serif;
     margin-bottom: 10px;
 }
 
-.table{
+.table {
     display: flex;
     flex-direction: column;
 }
 
-.tablecompany{
+.tablecompany {
     border-collapse: separate;
     border-spacing: 0px 20px;
 }
 
 
-.tablecompany thead th{
+.tablecompany thead th {
     background-color: #8E9AAF;
     color: white;
     font-family: 'Nunito', sans-serif;
@@ -25,39 +23,209 @@ h2{
 
 
 .tablecompany thead tr th:first-child {
-	border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 20px;
 }
+
 .tablecompany thead tr th:last-child {
-	border-radius: 0 20px 20px 0;
+    border-radius: 0 20px 20px 0;
 }
 
 
-.tablecompany tbody tr{
+.tablecompany tbody tr {
     background-color: #D9D9D9;
     color: #414C60;
     font-family: 'Nunito', sans-serif;
     text-align: center;
-    
+
 }
 
+/* .tablecompany td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 .tablecompany tbody tr td:first-child {
     padding: 20px 70px;
-	border-radius: 20px 0 0 20px;
-    
-    
+    border-radius: 20px 0 0 20px;
+
+
 }
+
 .tablecompany tbody tr td:last-child {
-	border-radius: 0 20px 20px 0;
-    
+    border-radius: 0 20px 20px 0;
+
+}
+
+.sortInputRow {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+}
+
+.sortInputRow select {
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../../../images/icons/material-symbols_arrow-drop-down-rounded.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px;
+    border: 1px solid #414C60;
+    outline: none;
+    background-color: #C2CFE4;
+    padding: 20px 70px;
+    border-radius: 5px;
+
+    color: #414C60;
+    font-family: 'Nunito', sans-serif;
+
+    transition: border-color 0.2s ease-in-out;
+
+}
+
+.sortInputRow select option {
+    background-color: #414C60;
+    color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+
+.sortInputRow input {
+    margin-bottom: 0 !important;
+}
+
+.sortInputRow input::placeholder {
+    color: #414C60;
+    font-family: 'Nunito', sans-serif;
+}
+
+.profileContainer {
+    background: #D4E0F2;
+    box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    min-height: 70vh;
+    padding: 20px 50px;
+}
+
+.header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.headerinfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: -webkit-fill-available;
+}
+
+.starscont {
+    max-width: 150px;
+}
+
+.profileContainer .header h6 {
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 150%;
+    /* identical to box height, or 54px */
+
+    display: flex;
+    align-items: center;
+
+    color: #414C60;
+}
+
+.profileContainer .header p {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    /* identical to box height, or 30px */
+
+    display: flex;
+    align-items: center;
+
+    color: #414C60;
+}
+
+.header img {
+    width: 121px;
+    height: 121px;
+    background: #414C60;
+    border-radius: 24px;
+}
+
+.mainInfo {
+    background: #D4E0F2;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 31px;
+    gap: 20px;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+    gap: 40px
+}
+
+.rightSide h6 {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    /* identical to box height, or 30px */
+
+    display: flex;
+    align-items: center;
+
+    color: #414C60;
+}
+
+.rightSide{
+    width: -webkit-fill-available;
+}
+
+.mainInfo p {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #414C60;
+}
+
+.leftSide {
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media (max-width:480px) {
-    .tablecompany thead th{
+    .tablecompany thead th {
         padding: 20px 5px;
     }
 
     .tablecompany tbody tr td:first-child {
         padding: 20px 0px;
     }
-} 
+}

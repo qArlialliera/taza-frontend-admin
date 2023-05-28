@@ -8,7 +8,6 @@ const instance = axios.create({
   });
 
   instance.interceptors.request.use(function (config) {
-    // let token = JSON.parse(window.sessionStorage.getItem("accessToken"));
     const token = Tokenchange.access_token
     config.headers["Authorization"] = "Bearer " + token;
     return config;
