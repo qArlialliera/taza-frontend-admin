@@ -4,7 +4,7 @@ import Tokenchange from "../mobx/Tokenchange";
 const token = Tokenchange.access_token
 
 const instance = axios.create({
-    baseURL: 'https://concerned-growth-production.up.railway.app/private',
+    baseURL: 'http://45.148.31.152:8081/private',
   });
 
   instance.interceptors.request.use(function (config) {

@@ -6,15 +6,11 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import Repeater from '../../../mobx/Repeater';
-// import FuzzySearch from 'fuzzy-search';
-// import FuzzySearch from 'react-fuzzy'
+
 
 export const CompaniesTable = observer(() => {
   const [data, setData] = useState('')
   const [selectedOption, setSelectedOption] = useState({ value: 'allcompanies', label: 'All companies' })
-  // const [searchTerm, setSearchTerm] = useState('');
-  // const [searchQuery, setSearchQuery] = useState('');
-  // const [searchResults, setSearchResults] = useState([]);
 
 
   useEffect(() => {
@@ -30,22 +26,6 @@ export const CompaniesTable = observer(() => {
     });
   }
 
-
-//   const filteredDataSearch = data && data.filter(item => {
-//     return item.name.toLowerCase().includes(searchTerm.toLowerCase());
-//   });
-
-//   const searchByName = (query) => {
-//     const searcher = new FuzzySearch(data, ['name']);
-//     const results = searcher.search(query);
-//     setSearchResults(results);
-// };
-
-
-  const handleSearchInputChange = (event) => {
-    // setSearchTerm(event.target.value);
-    // searchByName(event)
-  }
 
   const filteredData = data && data.filter(item => {
     if (selectedOption === 'active') {
@@ -109,7 +89,7 @@ export const CompaniesTable = observer(() => {
                     <td>{item.name}</td>
                     <td>{item.address}</td>
                     <td>{item.phoneNumber}</td>
-                    <td>0</td>
+                    <td>{item.rate}</td>
                     <td>{item.active ? 'Active' : 'Inactive'}</td>
                     <td className='center'>
                       <button className='btn primary_btn' onClick={() => goToAnotherPage(item)}>

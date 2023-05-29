@@ -23,10 +23,14 @@ export const Login = () => {
   const findUser = () => {
     const user = { username, password };
     UserService.loginUser(user).then((response) => {
-      localStorage.setItem('accessToken', response.data.accessToken);
-      localStorage.setItem('refreshToken', response.data.refreshToken);
-      navigate('/home')
-      Tokenchange.addtoken(response.data.accessToken, response.data.refreshToken)
+      console.log(response.data)
+      if (response.data.roles[0].authority === 'ROLE_ADMIN') {
+        localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('refreshToken', response.data.refreshToken);
+        navigate('/home')
+        Tokenchange.addtoken(response.data.accessToken, response.data.refreshToken)
+      }
+      else alert('Sorry, web only for admin')
     }).catch(error => {
       console.log(error)
     })
@@ -35,32 +39,32 @@ export const Login = () => {
   return (
     <div className={s.logn_page}>
       <motion.div className={s.background}
-        initial={{ x: 150 }} animate={{ x: 0 }} transition={{ duration: 0.75, ease: 'easeOut', delay:0.75 }}
+        initial={{ x: 150 }} animate={{ x: 0 }} transition={{ duration: 0.75, ease: 'easeOut', delay: 0.75 }}
       >
 
 
-      <motion.div className={s.row}
-        initial={{ x: 100 }} animate={{ x: 10 }} transition={{ duration: 0.75, ease: 'easeOut' }}
-      >
-        <div className={s.image} >
-          <Login_image />
-        </div>
-        <div className={s.login_forms}>
-          <h3>Welcome to Taza!</h3>
-          <p>Login with</p>
-          <div className={s.login_inputs}>
-            <form >
-              <input id="email" required type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}
-                onKeyPress={keyPress} />
-              <input id="password" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}
-                onKeyPress={keyPress} />
-            </form>
+        <motion.div className={s.row}
+          initial={{ x: 100 }} animate={{ x: 10 }} transition={{ duration: 0.75, ease: 'easeOut' }}
+        >
+          <div className={s.image} >
+            <Login_image />
           </div>
+          <div className={s.login_forms}>
+            <h3>Welcome to Taza!</h3>
+            <p>Login with</p>
+            <div className={s.login_inputs}>
+              <form >
+                <input id="email" required type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}
+                  onKeyPress={keyPress} />
+                <input id="password" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}
+                  onKeyPress={keyPress} />
+              </form>
+            </div>
 
-          <NavLink to='#' type="submit" className='primary_btn btn' onClick={() => findUser()}>Log In</NavLink>
+            <NavLink to='#' type="submit" className='primary_btn btn' onClick={() => findUser()}>Log In</NavLink>
 
 
-        </div>
+          </div>
         </motion.div>
       </motion.div>
     </div>

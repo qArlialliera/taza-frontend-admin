@@ -50,7 +50,7 @@ export const Messages = observer(() => {
   }
 
   const connect = () => {
-    var socket = new SockJS("http://192.168.31.156:8080/ws");
+    var socket = new SockJS("http://45.148.31.152:8081/ws");
     stompClient = Stomp.over(socket);
     stompClient.connect({}, onConnected, console.log("err"));
   }

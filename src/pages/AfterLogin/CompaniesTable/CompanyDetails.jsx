@@ -24,7 +24,7 @@ export const CompanyDetails = observer((props) => {
 
     const [isActive, setActive] = useState(location.state.item.active)
     useEffect(() => {
-        axios.get(`https://concerned-growth-production.up.railway.app/public/file/photo/get/${location.state.item.photo}`, { responseType: 'blob' }).then((response) => {
+        axios.get(`http://45.148.31.152:8081/public/file/photo/get/${location.state.item.photo}`, { responseType: 'blob' }).then((response) => {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setImageData(reader.result);
